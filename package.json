@@ -1,0 +1,21 @@
+{
+  "name": "promised-routes",
+  "version": "0.0.1",
+  "author": "Matti Lankinen <m.lankinen@iki.fi>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "test": "npm run lint && npm run mocha:all",
+    "mocha:all": "npm run mocha -- --recursive test",
+    "mocha": "mocha -t 3000 --check-leaks -u bdd --compilers js:babel/register",
+    "lint": "npm run lint:js",
+    "lint:js": "jshint --reporter node_modules/jshint-stylish-ex/stylish.js index.js test/* lib/*"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel": "5.1.13",
+    "jshint": "2.7.0",
+    "jshint-stylish-ex": "0.2.0",
+    "mocha": "2.2.4"
+  }
+}
