@@ -1,9 +1,15 @@
 {
   "name": "promised-routes",
   "version": "0.0.1",
+  "description": "Dead simple ExpressJS routes with promises",
   "author": "Matti Lankinen <m.lankinen@iki.fi>",
+  "keywords": ["express", "promise", "routes"],
   "license": "MIT",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:milankinen/promised-routes.git"
+  },
   "scripts": {
     "test": "npm run lint && npm run mocha:all",
     "mocha:all": "npm run mocha -- --recursive test",
