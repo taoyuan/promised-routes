@@ -1,3 +1,5 @@
 'use strict';
 
-module.exports = {}
+var Routes = require('./lib/routes')
+
+module.exports = new Routes()
