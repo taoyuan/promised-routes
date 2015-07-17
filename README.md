@@ -64,3 +64,36 @@ app.get('/my/route/:id', routes.json(function(req) {
 Simple, lightweight, tested and beautiful.
 
 :+1:
+
+
+## API
+
+### `.json((request [, response]) => promise) => handler`
+
+Creates an `express` route that returns `Content-Type: application/json` with 
+200 code and JSON body. The returned JSON body must be wrapped to promise.
+
+```javascript
+var routes   = require('promised-routes'),
+    Bluebird = require('bluebird')
+
+app.get('/tsers/:name', routes.json(function(req) {
+  return Bluebird.resolve({msg: 'Tsers ' + req.params.name + '!'})
+}))
+```
+
+### `.configure(opts) => routes`
+
+Creates a new routes object with overridden options. 
+
+```javascript
+var routes = require('routes')
+
+var custom = routes.configure({errorHandler: function(res, error) { res.status(200).send('ok?') }})
+
+app.get('/my/route', custom.json(function(req) {
+  // ...
+}))
+``` 
+
+Please see possible options and their defaults from **[here](lib/defaultOptions.js)**.
