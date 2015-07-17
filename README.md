@@ -68,10 +68,11 @@ Simple, lightweight, tested and beautiful.
 
 ## API
 
-#### `.json((request [, response]) => promise) => handler`
+#### `.json((request [, response]) => value|promise(value)) => routeHandler`
 
 Creates an `express` route that returns `Content-Type: application/json` with 
-200 code and JSON body. The returned JSON body must be wrapped to promise.
+200 code and JSON body. The returned JSON body can be wrapped to promise so 
+that it'll be sent asynchronously when the promise completes.
 
 ```javascript
 var routes   = require('promised-routes'),
@@ -81,6 +82,24 @@ app.get('/tsers/:name', routes.json(function(req) {
   return Bluebird.resolve({msg: 'Tsers ' + req.params.name + '!'})
 }))
 ```
+
+
+#### `.custom(mimeType, (request [, response]) => value|promise(value)) => routeHandler`
+
+Creates an `express` route that returns the user selected mime type as
+response's `Content-Type`. The body is returned with `response.send()` so
+all `express` supported types can be returned. Like in JSON routes, both
+synchronous and asynchronous (= promises) values are supported.
+
+```javascript
+var routes   = require('promised-routes')
+
+app.get('/tsers/:filename', routes.custom('application/octet-stream', function(req, res) {
+  res.set('Content-Disposition', 'attachment;filename=' + req.params.filename)
+  return new Buffer('tsers!', 'utf8')
+}))
+```
+
 
 #### `.configure(opts) => routes`
 
