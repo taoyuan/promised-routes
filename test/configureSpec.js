@@ -7,7 +7,7 @@ let expect     = require('chai').expect,
     routes     = require('../index')
 
 
-describe('JSON configuration', () => {
+describe('route configurations', () => {
   let server = null
 
   let customRoutes = routes.configure({
@@ -25,7 +25,7 @@ describe('JSON configuration', () => {
   })
 
 
-  it('supports default value overriding', (done) => {
+  it('support default value overriding', (done) => {
     client.get('/error')
       .get('body')
       .then(JSON.parse)

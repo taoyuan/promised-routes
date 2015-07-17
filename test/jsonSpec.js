@@ -33,7 +33,7 @@ describe('JSON routes', () => {
   })
 
 
-  it('supports Bluebird ok values', (done) => {
+  it('support Bluebird ok values', (done) => {
     client.get('/bluebird/ok')
       .get('body')
       .then(JSON.parse)
@@ -42,7 +42,7 @@ describe('JSON routes', () => {
       .done()
   })
 
-  it('supports Bluebird nok values', (done) => {
+  it('support Bluebird nok values', (done) => {
     client.get('/bluebird/nok')
       .then((res) => {
         expect(res.statusCode).to.equal(500)
@@ -52,7 +52,7 @@ describe('JSON routes', () => {
       .done()
   })
 
-  it('supports Q ok values', (done) => {
+  it('support Q ok values', (done) => {
     client.get('/q/ok')
       .get('body')
       .then(JSON.parse)
@@ -61,7 +61,7 @@ describe('JSON routes', () => {
       .done()
   })
 
-  it('supports Q nok values', (done) => {
+  it('support Q nok values', (done) => {
     client.get('/q/nok')
       .then((res) => {
         expect(res.statusCode).to.equal(500)
