@@ -68,7 +68,7 @@ Simple, lightweight, tested and beautiful.
 
 ## API
 
-### `.json((request [, response]) => promise) => handler`
+#### `.json((request [, response]) => promise) => handler`
 
 Creates an `express` route that returns `Content-Type: application/json` with 
 200 code and JSON body. The returned JSON body must be wrapped to promise.
@@ -82,7 +82,7 @@ app.get('/tsers/:name', routes.json(function(req) {
 }))
 ```
 
-### `.configure(opts) => routes`
+#### `.configure(opts) => routes`
 
 Creates a new routes object with overridden options. 
 
