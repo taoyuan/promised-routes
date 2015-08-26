@@ -83,6 +83,11 @@ app.get('/tsers/:name', routes.json(function(req) {
 }))
 ```
 
+### `.jsonp((request[, response]) => value|promise(value)) => routeHandler`
+
+Behaves exactly same like `.json(..)` but uses `res.jsonp` for response sending
+instead of `res.json`. All express configurations to Express application apply here.
+
 
 #### `.custom(mimeType, (request [, response]) => value|promise(value)) => routeHandler`
 
