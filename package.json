@@ -1,6 +1,6 @@
 {
   "name": "promised-routes",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Dead simple ExpressJS routes with promises",
   "author": "Matti Lankinen <m.lankinen@iki.fi>",
   "keywords": [
