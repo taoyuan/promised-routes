@@ -1,15 +1,17 @@
 {
   "name": "promised-routing",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "Dead simple ExpressJS routes with promises",
-  "author": "Matti Lankinen <m.lankinen@iki.fi>",
+  "author": "Yuan Tao <towyuan@outlook.com>",
+  "contributors": [
+    "Matti Lankinen <m.lankinen@iki.fi>"
+  ],
   "keywords": [
     "express",
     "promise",
     "routing"
   ],
   "license": "MIT",
-  "private": false,
   "main": "lib/routing",
   "repository": {
     "type": "git",
