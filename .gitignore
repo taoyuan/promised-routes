@@ -1,9 +1,9 @@
-.DS_Store
-
+npm-debug.log*
 node_modules
-*.log
 
-# IDEs
+# build artifacts
+**/dist/*
+.nyc_output
+coverage
+
 .idea
-*.iml
-

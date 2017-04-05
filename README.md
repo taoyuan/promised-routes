@@ -1,7 +1,7 @@
-# Promised routes
+# Promised routing
 
-[![Build Status](https://travis-ci.org/milankinen/promised-routes.svg?branch=master)](https://travis-ci.org/milankinen/promised-routes)
-[![npm version](https://badge.fury.io/js/promised-routes.svg)](http://badge.fury.io/js/promised-routes)
+[![Build Status](https://travis-ci.org/taoyuan/promised-routing.svg?branch=master)](https://travis-ci.org/taoyuan/promised-routing)
+[![npm version](https://badge.fury.io/js/promised-routing.svg)](http://badge.fury.io/js/promised-routing)
 
 Dead simple ExpressJS routes for developers using promises.
 
@@ -50,12 +50,12 @@ Well, that looks like a lot better! However, there is still some boilerplate
 in that code: the last `then`, `catch` and `done` are basically same for all
 routes. Doh!
 
-Here `promised-routes` comes to rescue:
+Here `promised-routing` comes to rescue:
 
 ```javascript
-var routes = require('promised-routes')
+var routing = require('promised-routing')
 ...
-app.get('/my/route/:id', routes.json(function(req) {
+app.get('/my/route/:id', routing.json(function(req) {
   return findObjFromDb(req.params.id)
     .then(findAnotherObjFromDb)       
 }))
@@ -75,10 +75,10 @@ Creates an `express` route that returns `Content-Type: application/json` with
 that it'll be sent asynchronously when the promise completes.
 
 ```javascript
-var routes   = require('promised-routes'),
+var routing   = require('promised-routing'),
     Bluebird = require('bluebird')
 
-app.get('/tsers/:name', routes.json(function(req) {
+app.get('/tsers/:name', routing.json(function(req) {
   return Bluebird.resolve({msg: 'Tsers ' + req.params.name + '!'})
 }))
 ```
@@ -97,27 +97,25 @@ all `express` supported types can be returned. Like in JSON routes, both
 synchronous and asynchronous (= promises) values are supported.
 
 ```javascript
-var routes   = require('promised-routes')
+var routing   = require('promised-routing')
 
-app.get('/tsers/:filename', routes.custom('application/octet-stream', function(req, res) {
+app.get('/tsers/:filename', routing.custom('application/octet-stream', function(req, res) {
   res.set('Content-Disposition', 'attachment;filename=' + req.params.filename)
   return new Buffer('tsers!', 'utf8')
 }))
 ```
 
 
-#### `.configure(opts) => routes`
+#### `.configure(opts) => routing`
 
-Creates a new routes object with overridden options. 
+Creates a new routing object with overridden options. 
 
 ```javascript
-var routes = require('routes')
+var routing = require('promised-routing')
 
-var custom = routes.configure({errorHandler: function(res, error) { res.status(200).send('ok?') }})
+var custom = routing.configure({errorHandler: function(res, error) { res.status(200).send('ok?') }})
 
 app.get('/my/route', custom.json(function(req) {
   // ...
 }))
 ``` 
-
-Please see possible options and their defaults from **[here](lib/defaultOptions.js)**.
